@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Menu | Deli Express</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-light sticky-top">
+    <div class="container">
+      <a class="navbar-brand link-brand" href="home.html"><img src="../static/images/logo_nav.png" alt="Deli Express"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Offcanvas NAV (outside navbar to avoid clipping) -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="mainNav" aria-labelledby="mainNavLabel"
+       data-bs-scroll="true" data-bs-backdrop="true">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="mainNavLabel">Menu</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="menu.html">Menu</a></li>
+        <li class="nav-item"><a class="nav-link" href="orders.html">Orders</a></li>
+        <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="container page-wrap">
+    <div class="glass p-3 p-md-4">
+      <!-- Tabs -->
+      <ul class="nav nav-tabs tabs-brand mb-3" id="menuTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="food-tab" data-bs-toggle="tab" data-bs-target="#food"
+                  type="button" role="tab" aria-controls="food" aria-selected="true">
+            Food
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="drinks-tab" data-bs-toggle="tab" data-bs-target="#drinks"
+                  type="button" role="tab" aria-controls="drinks" aria-selected="false">
+            Drinks
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="mealbox-tab" data-bs-toggle="tab" data-bs-target="#mealbox"
+                  type="button" role="tab" aria-controls="mealbox" aria-selected="false">
+            Meal-Box
+          </button>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <!-- FOOD -->
+        <div class="tab-pane fade show active" id="food" role="tabpanel" aria-labelledby="food-tab">
+          <div class="menu-row">
+            <div class="flex-grow-1">
+              <div class="menu-name">Turkey Club Sandwich</div>
+              <div class="menu-meta">Multigrain, turkey, bacon, lettuce, tomato</div>
+            </div>
+            <div class="menu-price me-2" data-price="6.90">$6.90</div>
+            <button class="btn btn-sm btn-outline-secondary btn-add" data-id="f1" data-name="Turkey Club Sandwich" data-price="6.90">
+              Add
+            </button>
+          </div>
+          <div class="menu-row">
+            <div class="flex-grow-1">
+              <div class="menu-name">Pesto Pasta Bowl</div>
+              <div class="menu-meta">Basil pesto, roasted veggies, parmesan</div>
+            </div>
+            <div class="menu-price me-2" data-price="8.20">$8.20</div>
+            <button class="btn btn-sm btn-outline-secondary btn-add" data-id="f2" data-name="Pesto Pasta Bowl" data-price="8.20">
+              Add
+            </button>
+          </div>
+          <div class="menu-row">
+            <div class="flex-grow-1">
+              <div class="menu-name">Grilled Chicken Salad</div>
+              <div class="menu-meta">Romaine, cherry tomatoes, lemon vinaigrette</div>
+            </div>
+            <div class="menu-price me-2" data-price="7.50">$7.50</div>
+            <button class="btn btn-sm btn-outline-secondary btn-add" data-id="f3" data-name="Grilled Chicken Salad" data-price="7.50">
+              Add
+            </button>
+          </div>
+        </div>
+
+        <!-- DRINKS -->
+        <div class="tab-pane fade" id="drinks" role="tabpanel" aria-labelledby="drinks-tab">
+          <div class="menu-row">
+            <div class="flex-grow-1">
+              <div class="menu-name">Iced Americano</div>
+              <div class="menu-meta">Double shot, over ice</div>
+            </div>
+            <div class="menu-price me-2" data-price="3.20">$3.20</div>
+            <button class="btn btn-sm btn-outline-secondary btn-add" data-id="d1" data-name="Iced Americano" data-price="3.20">
+              Add
+            </button>
+          </div>
+          <div class="menu-row">
+            <div class="flex-grow-1">
+              <div class="menu-name">Green Tea</div>
+              <div class="menu-meta">Hot or iced</div>
+            </div>
+            <div class="menu-price me-2" data-price="2.70">$2.70</div>
+            <button class="btn btn-sm btn-outline-secondary btn-add" data-id="d2" data-name="Green Tea" data-price="2.70">
+              Add
+            </button>
+          </div>
+          <div class="menu-row">
+            <div class="flex-grow-1">
+              <div class="menu-name">Sparkling Water</div>
+              <div class="menu-meta">330ml can</div>
+            </div>
+            <div class="menu-price me-2" data-price="1.80">$1.80</div>
+            <button class="btn btn-sm btn-outline-secondary btn-add" data-id="d3" data-name="Sparkling Water" data-price="1.80">
+              Add
+            </button>
+          </div>
+        </div>
+
+        <!-- MEAL BOX -->
+        <div class="tab-pane fade" id="mealbox" role="tabpanel" aria-labelledby="mealbox-tab">
+          <div class="menu-row">
+            <div class="flex-grow-1">
+              <div class="menu-name">Classic Bento</div>
+              <div class="menu-meta">Chicken, rice, veggies, side salad</div>
+            </div>
+            <div class="menu-price me-2" data-price="9.90">$9.90</div>
+            <button class="btn btn-sm btn-outline-secondary btn-add" data-id="m1" data-name="Classic Bento" data-price="9.90">
+              Add
+            </button>
+          </div>
+          <div class="menu-row">
+            <div class="flex-grow-1">
+              <div class="menu-name">Veggie Power Box</div>
+              <div class="menu-meta">Quinoa, roasted veg, hummus, greens</div>
+            </div>
+            <div class="menu-price me-2" data-price="9.40">$9.40</div>
+            <button class="btn btn-sm btn-outline-secondary btn-add" data-id="m2" data-name="Veggie Power Box" data-price="9.40">
+              Add
+            </button>
+          </div>
+          <div class="menu-row">
+            <div class="flex-grow-1">
+              <div class="menu-name">Teriyaki Salmon Box</div>
+              <div class="menu-meta">Salmon, rice, steamed veg</div>
+            </div>
+            <div class="menu-price me-2" data-price="11.50">$11.50</div>
+            <button class="btn btn-sm btn-outline-secondary btn-add" data-id="m3" data-name="Teriyaki Salmon Box" data-price="11.50">
+              Add
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky Cart Summary -->
+  <div class="cart-bar">
+    <div class="container d-flex align-items-center justify-content-between">
+      <div class="d-flex align-items-center gap-2">
+        <span class="badge rounded-pill cart-pill">
+          <i class="bi bi-cart3 me-1"></i>
+          <span id="cartItems">0</span> items
+        </span>
+        <span class="fw-semibold">Total: <span id="cartTotal">$0.00</span></span>
+      </div>
+      <div class="d-flex align-items-center gap-2">
+        <button id="clearBtn" class="btn btn-sm btn-outline-secondary">Clear</button>
+        <a href="/cart" class="btn btn-primary btn-sm">View Cart</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Simple client-side cart
+    const cart = {}; // id -> {name, price, qty}
+
+    function formatUSD(n){ return `$${Number(n).toFixed(2)}`; }
+
+    function updateSummary(){
+      let items = 0, total = 0;
+      Object.values(cart).forEach(({price, qty}) => { items += qty; total += price * qty; });
+      document.getElementById('cartItems').textContent = items;
+      document.getElementById('cartTotal').textContent = formatUSD(total);
+    }
+
+    function attachHandlers(){
+      document.querySelectorAll('.btn-add').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.dataset.id;
+          const name = btn.dataset.name;
+          const price = Number(btn.dataset.price);
+          if(!cart[id]) cart[id] = {name, price, qty: 0};
+          cart[id].qty += 1;
+          // show tiny feedback on the button
+          btn.classList.add('active');
+          setTimeout(()=>btn.classList.remove('active'), 120);
+          updateSummary();
+        });
+      });
+
+      document.getElementById('clearBtn').addEventListener('click', () => {
+        for(const k in cart) delete cart[k];
+        updateSummary();
+      });
+    }
+
+    // Init
+    attachHandlers();
+    updateSummary();
+  </script>
+</body>
+</html>

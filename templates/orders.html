@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Orders • Deli Express</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="../static/styles.css">
+  <style>
+    /* Extra overrides for brand-colored badges and cards */
+    .order-badge {
+      padding: .25rem .5rem;
+      font-size: .75rem;
+      font-weight: 600;
+      border-radius: .5rem;
+    }
+    .badge-preparing {
+      background: var(--c-542);
+      color: var(--ink);
+    }
+    .badge-queued {
+      background: var(--c-544);
+      color: var(--ink);
+    }
+    .badge-completed {
+      background: var(--c-539);
+      color: #fff;
+    }
+    .order-card {
+      border: 1px solid rgba(255,255,255,.4);
+      border-radius: 1rem;
+      background: rgba(255,255,255,.9);
+      box-shadow: 0 8px 24px rgba(0,0,0,.15);
+      margin-bottom: 1rem;
+    }
+    .progress-bar-brand {
+      background-color: var(--c-542);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR (always hamburger) -->
+  <nav class="navbar navbar-light sticky-top">
+    <div class="container">
+      <a class="navbar-brand link-brand" href="home.html">
+        <img src="../static/images/logo_nav.png" alt="Deli Express">
+      </a>
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="offcanvas" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Offcanvas NAV -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="mainNav" aria-labelledby="mainNavLabel"
+       data-bs-scroll="true" data-bs-backdrop="true">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="mainNavLabel">Deli Express</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+        <li class="nav-item"><a class="nav-link active" href="orders.html">Orders</a></li>
+        <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
+    <div class="container page-wrap">
+      <div class="glass p-3 p-md-4">
+        <!-- Tabs -->
+        <ul class="nav nav-tabs tabs-brand mb-3" id="ordersTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="active-tab" data-bs-toggle="tab" data-bs-target="#active"
+                    type="button" role="tab" aria-controls="active" aria-selected="true">
+              <i class="bi bi-hourglass-split me-1"></i> Active Orders
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="completed-tab" data-bs-toggle="tab" data-bs-target="#completed"
+                    type="button" role="tab" aria-controls="completed" aria-selected="false">
+              <i class="bi bi-check2-circle me-1"></i> Completed
+            </button>
+          </li>
+        </ul>
+
+        <div class="tab-content" id="ordersTabContent">
+          <!-- ACTIVE -->
+          <div class="tab-pane fade show active" id="active" role="tabpanel">
+            <!-- Order Card -->
+            <div class="order-card p-3">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <h5 class="mb-1">Order #1234</h5>
+                  <div class="small muted">Placed: 12:10 PM • Pickup: Express</div>
+                </div>
+                <span class="order-badge badge-preparing">Preparing</span>
+              </div>
+
+              <hr>
+
+              <ul class="list-unstyled small mb-3">
+                <li>• Turkey Club Sandwich ×1</li>
+                <li>• Pesto Pasta Bowl ×1</li>
+                <li>• Iced Americano ×1</li>
+              </ul>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="small muted">ETA ~ <strong>18 min</strong></div>
+                <div class="text-end">
+                  <div class="small muted">Total</div>
+                  <div class="h5 mb-0">$18.30</div>
+                </div>
+              </div>
+
+              <div class="progress mt-3" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar progress-bar-brand" style="width:45%;"></div>
+              </div>
+            </div>
+
+            <!-- Another Active Order -->
+            <div class="order-card p-3">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <h5 class="mb-1">Order #1235</h5>
+                  <div class="small muted">Placed: 12:18 PM • Pickup: Regular</div>
+                </div>
+                <span class="order-badge badge-queued">Queued</span>
+              </div>
+
+              <hr>
+
+              <ul class="list-unstyled small mb-3">
+                <li>• Classic Bento ×1</li>
+                <li>• Sparkling Water ×1</li>
+              </ul>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="small muted">ETA ~ <strong>26 min</strong></div>
+                <div class="text-end">
+                  <div class="small muted">Total</div>
+                  <div class="h5 mb-0">$11.70</div>
+                </div>
+              </div>
+
+              <div class="progress mt-3" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar progress-bar-brand" style="width:10%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- COMPLETED -->
+          <div class="tab-pane fade" id="completed" role="tabpanel">
+            <div class="order-card p-3">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <h5 class="mb-1">Order #1229</h5>
+                  <div class="small muted">Completed: Aug 20, 2025 • Express</div>
+                </div>
+                <span class="order-badge badge-completed"><i class="bi bi-check2 me-1"></i>Completed</span>
+              </div>
+
+              <hr>
+
+              <ul class="list-unstyled small mb-3">
+                <li>• Teriyaki Salmon Box ×1</li>
+                <li>• Green Tea ×1</li>
+              </ul>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="small muted">Picked up at <strong>1:05 PM</strong></div>
+                <div class="text-end">
+                  <div class="small muted">Total</div>
+                  <div class="h5 mb-0">$14.20</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="order-card p-3">
+              <div class="d-flex justify-content-between align-items-start">
+                <div>
+                  <h5 class="mb-1">Order #1227</h5>
+                  <div class="small muted">Completed: Aug 18, 2025 • Regular</div>
+                </div>
+                <span class="order-badge badge-completed"><i class="bi bi-check2 me-1"></i>Completed</span>
+              </div>
+
+              <hr>
+
+              <ul class="list-unstyled small mb-3">
+                <li>• Berry Oat Bowl ×1</li>
+                <li>• Iced Americano ×1</li>
+              </ul>
+
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="small muted">Picked up at <strong>12:40 PM</strong></div>
+                <div class="text-end">
+                  <div class="small muted">Total</div>
+                  <div class="h5 mb-0">$9.00</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- tab content -->
+      </div>
+    </div>
+  </div>
+  <a href="/cart" class="fab fab-cart" data-bs-toggle="tooltip" data-bs-title="View Cart" aria-label="View Cart">
+    <i class="bi bi-cart3"></i>
+    <span class="badge rounded-pill text-bg-danger fab-badge" id="cartCount">0</span>
+  </a>
+  <a href="/order/start" class="btn fab fab-order" data-bs-toggle="tooltip" data-bs-title="Start Order" aria-label="Start Order">
+    <i class="bi bi-lightning-charge-fill"></i>
+  </a>
+<!--  <footer>-->
+<!--    © <span id="y"></span> Deli Express • Chadwick International School-->
+<!--  </footer>-->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>
