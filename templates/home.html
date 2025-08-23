@@ -5,15 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Home | Deli Express</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="../static/styles.css">
 </head>
 <body>
 
+  <!-- NAVBAR (always hamburger) -->
   <nav class="navbar navbar-light sticky-top">
     <div class="container">
-      <a class="navbar-brand link-brand" href="home.html"><img src="../static/images/logo_nav.png" alt="Deli Express"></a>
+      <a class="navbar-brand link-brand" href="home.html">
+        <img src="../static/images/logo_nav.png" alt="Deli Express">
+      </a>
       <button class="navbar-toggler" type="button"
               data-bs-toggle="offcanvas" data-bs-target="#mainNav"
               aria-controls="mainNav" aria-label="Toggle navigation">
@@ -21,25 +23,25 @@
       </button>
     </div>
   </nav>
-  <!-- Offcanvas NAV (moved outside navbar to avoid clipping) -->
-<div class="offcanvas offcanvas-end" tabindex="-1" id="mainNav" aria-labelledby="mainNavLabel"
-     data-bs-scroll="true" data-bs-backdrop="true">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="mainNavLabel">Deli Express</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body">
-    <ul class="navbar-nav">
-      <li class="nav-item"><a class="nav-link active" href="home.html">Home</a></li>
-      <li class="nav-item"><a class="nav-link active" href="menu.html">Menu</a></li>
-      <li class="nav-item"><a class="nav-link" href="orders.html">Orders</a></li>
-      <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
-    </ul>
-  </div>
-</div>
 
+  <!-- Offcanvas NAV (outside navbar to avoid clipping) -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="mainNav" aria-labelledby="mainNavLabel"
+       data-bs-scroll="true" data-bs-backdrop="true">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="mainNavLabel">Deli Express</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link active" href="home.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+        <li class="nav-item"><a class="nav-link" href="orders.html">Orders</a></li>
+        <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+      </ul>
+    </div>
+  </div>
 
-  <!-- CONTENT -->
+  <!-- MAIN CONTENT -->
   <div class="container page-wrap">
     <div class="row g-4">
       <!-- Left Column -->
@@ -79,30 +81,13 @@
           </div>
         </div>
 
-        <!-- Recommended -->
+        <!-- Recommended (dynamic render) -->
         <div class="glass p-3 p-md-4">
           <div class="d-flex justify-content-between align-items-center mb-2">
             <h2 class="section-title h4 mb-0">Recommended for You</h2>
             <a href="/recommendations" class="link-brand small">See all</a>
           </div>
-
-          <div class="menu-row">
-            <div class="flex-grow-1">
-              <div class="menu-name">Berry Oat Bowl</div>
-              <div class="menu-meta">High fiber, low sugar, quick breakfast</div>
-            </div>
-            <div class="menu-price me-2">$5.80</div>
-            <a href="/order/add/11" class="link-brand small">Add</a>
-          </div>
-
-          <div class="menu-row">
-            <div class="flex-grow-1">
-              <div class="menu-name">Greek Yogurt Parfait</div>
-              <div class="menu-meta">Granola, honey, seasonal fruit</div>
-            </div>
-            <div class="menu-price me-2">$5.40</div>
-            <a href="/order/add/12" class="link-brand small">Add</a>
-          </div>
+          <div id="recoList"><!-- JS renders rows here --></div>
         </div>
       </div>
 
@@ -112,14 +97,14 @@
         <div class="glass p-3 p-md-4 mb-4">
           <h2 class="section-title h4 mb-3">Orders in Queue</h2>
 
-        <ul class="nav nav-tabs tabs-brand" id="queueTabs" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="regular-tab" data-bs-toggle="tab" data-bs-target="#regular" type="button" role="tab">Regular</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="express-tab" data-bs-toggle="tab" data-bs-target="#express" type="button" role="tab">Express</button>
-          </li>
-        </ul>
+          <ul class="nav nav-tabs tabs-brand" id="queueTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="regular-tab" data-bs-toggle="tab" data-bs-target="#regular" type="button" role="tab">Regular</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="express-tab" data-bs-toggle="tab" data-bs-target="#express" type="button" role="tab">Express</button>
+            </li>
+          </ul>
 
           <div class="tab-content pt-3">
             <div class="tab-pane fade show active" id="regular" role="tabpanel">
@@ -135,7 +120,7 @@
                 </div>
               </div>
               <div class="progress mt-3" role="progressbar" aria-label="Regular queue load" aria-valuemin="0" aria-valuemax="100">
-                <div id="regularBar" class="progress-bar" style="width:0%; background-color: #7CAAC8;"></div>
+                <div id="regularBar" class="progress-bar" style="width:0%; background-color: var(--c-542);"></div>
               </div>
             </div>
 
@@ -152,11 +137,10 @@
                 </div>
               </div>
               <div class="progress mt-3" role="progressbar" aria-label="Express queue load" aria-valuemin="0" aria-valuemax="100">
-                <div id="expressBar" class="progress-bar bg-success" style="width:0%"></div>
+                <div id="expressBar" class="progress-bar" style="width:0%; background-color: var(--c-544);"></div>
               </div>
             </div>
           </div>
-
         </div>
 
         <!-- Survey -->
@@ -171,28 +155,36 @@
         </div>
       </div>
     </div>
-
-
   </div>
 
+  <!-- Floating Action Buttons -->
   <a href="/cart" class="fab fab-cart" data-bs-toggle="tooltip" data-bs-title="View Cart" aria-label="View Cart">
     <i class="bi bi-cart3"></i>
-    <span class="badge rounded-pill text-bg-danger fab-badge" id="cartCount">0</span>
+    <span class="badge badge-brand fab-badge" id="cartCount" style="background:var(--c-539); color:#fff;">0</span>
   </a>
+
   <a href="/order/start" class="btn fab fab-order" data-bs-toggle="tooltip" data-bs-title="Start Order" aria-label="Start Order">
     <i class="bi bi-lightning-charge-fill"></i>
   </a>
+
   <footer class="mb-3">
     © <span id="y"></span> Deli Express • Chadwick International School
   </footer>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // Mock data: replace with backend values
+    /* ===== Mock data: replace with backend values ===== */
     const queueData = {
       regular: { count: 14, minutesPerOrder: 2.5 },
       express: { count: 6,  minutesPerOrder: 1.2 }
     };
     const cartData = { count: 3 }; // example cart count
+
+    const recommendations = [
+      { id: 'rec1', name: 'Chicken Caesar Wrap', meta: 'Romaine, parmesan, light caesar', price: 6.50 },
+      { id: 'rec2', name: 'Tomato Basil Soup',   meta: 'Hearty, warm, vegetarian',      price: 4.20 },
+      { id: 'rec3', name: 'Protein Yogurt Cup',  meta: 'Greek yogurt, nuts, honey',     price: 4.80 }
+    ];
 
     function minutesToLabel(mins){
       const m = Math.round(mins);
@@ -200,25 +192,20 @@
       const h = Math.floor(m/60), r = m%60;
       return r ? `${h}h ${r}m` : `${h}h`;
     }
+    function formatUSD(n){ return `$${Number(n).toFixed(2)}`; }
+
 
     function updateQueues(){
       const r = queueData.regular, e = queueData.express;
 
-      // Counts
       document.getElementById('regularCount').textContent = r.count;
       document.getElementById('expressCount').textContent = e.count;
 
-      // Navbar badges
-      document.getElementById('navRegular').textContent = `R ${r.count}`;
-      document.getElementById('navExpress').textContent = `E ${e.count}`;
-
-      // ETAs
       const rEta = r.count * r.minutesPerOrder;
       const eEta = e.count * e.minutesPerOrder;
       document.getElementById('regularEta').textContent = minutesToLabel(rEta);
       document.getElementById('expressEta').textContent = minutesToLabel(eEta);
 
-      // Progress bars
       const rPct = Math.min(100, Math.round((r.count/25)*100));
       const ePct = Math.min(100, Math.round((e.count/25)*100));
       document.getElementById('regularBar').style.width = rPct + '%';
@@ -227,6 +214,7 @@
       document.getElementById('expressBar').setAttribute('aria-valuenow', ePct);
     }
 
+
     function updateCart(){
       const n = cartData.count ?? 0;
       const badge = document.getElementById('cartCount');
@@ -234,13 +222,50 @@
       badge.style.display = n > 0 ? 'inline-block' : 'none';
     }
 
-    // Year footer
+
+    function renderRecommendations(list){
+      const root = document.getElementById('recoList');
+      if(!root) return;
+      root.innerHTML = list.map(item => `
+        <div class="menu-row">
+          <div class="flex-grow-1">
+            <div class="menu-name">${item.name}</div>
+            <div class="menu-meta">${item.meta}</div>
+          </div>
+          <div class="menu-price me-2">${formatUSD(item.price)}</div>
+          <button class="btn btn-sm btn-outline-secondary btn-add-reco"
+                  data-id="${item.id}" data-name="${item.name}" data-price="${item.price}">
+            Add
+          </button>
+        </div>
+      `).join('');
+    }
+
+    function attachRecoHandlers(){
+      document.getElementById('recoList')?.addEventListener('click', (e) => {
+        const btn = e.target.closest('.btn-add-reco');
+        if(!btn) return;
+        // Hook up to backend cart here; for demo we bump FAB badge count:
+        const badge = document.getElementById('cartCount');
+        const n = parseInt(badge?.textContent || '0', 10) + 1;
+        if(badge){
+          badge.textContent = n;
+          badge.style.display = n > 0 ? 'inline-block' : 'none';
+        }
+        btn.classList.add('active');
+        setTimeout(()=>btn.classList.remove('active'), 120);
+      });
+    }
+
+    // Footer year
     document.getElementById('y').textContent = new Date().getFullYear();
 
     // Init tooltips + data
     document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
     updateQueues();
     updateCart();
+    renderRecommendations(recommendations);
+    attachRecoHandlers();
   </script>
 </body>
 </html>
